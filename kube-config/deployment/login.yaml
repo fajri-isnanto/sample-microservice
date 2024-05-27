@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-login
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      backend: login
+  template: 
+    metadata:
+      labels:
+        backend: login
+    spec:
+      containers:
+        - name: backend-login
+          image: kalax1011/auth
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: service-login
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+  selector: 
+    backend: login
+
