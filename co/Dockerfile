@@ -15,7 +15,7 @@ COPY index3.html /usr/share/nginx/html/
 RUN mv /usr/share/nginx/html/index3.html /usr/share/nginx/html/index.html
 
 # Salin Gambar
-COPY checkout.jpg /usr/share/nginx/html/
+COPY checkout.png /usr/share/nginx/html/
 
 # Ekspose port 80
 EXPOSE 80
