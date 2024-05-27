@@ -12,7 +12,7 @@ COPY nginx.conf /etc/nginx/conf.d/
 
 # Salin file HTML ke dalam direktori yang akan dilayani oleh nginx
 COPY index2.html /usr/share/nginx/html/
-RUN mv /usr/share/nginx/html/index1.html /usr/share/nginx/html/index.html
+RUN mv /usr/share/nginx/html/index2.html /usr/share/nginx/html/index.html
 
 # Salin Gambar
 COPY product.webp /usr/share/nginx/html/
