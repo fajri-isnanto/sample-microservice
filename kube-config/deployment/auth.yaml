@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment-login
+  name: deployment-auth
 spec:
   replicas: 1
   selector:
     matchLabels: 
-      backend: login
+      backend: auth
   template: 
     metadata:
       labels:
-        backend: login
+        backend: auth
     spec:
       containers:
-        - name: backend-login
+        - name: backend-auth
           image: kalax1011/auth
           ports:
             - containerPort: 80
@@ -22,12 +22,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: 
-  name: service-login
+  name: service-auth
 spec:
   type: ClusterIP
   ports:
     - port: 80
       targetPort: 80
   selector: 
-    backend: login
+    backend: auth
 
